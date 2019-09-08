@@ -2,6 +2,7 @@ package optional;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ImperativeToFunctional {
 
@@ -18,18 +19,23 @@ public class ImperativeToFunctional {
 		}
 
 		/* 1. Predict the result without running the code. */
-		
+		System.out.println(8);
 
 		/* 2. Write a functional alternative using the filter method. */
+		try {
+			int solution = numbers.stream().filter(x -> x > 5 && x % 2 == 0 && x < 9 && x * 2 > 15).findFirst().get();
+			System.out.println(solution);
+		} catch (NoSuchElementException e) {
+			System.out.println("No such element.");
+		}
 
-		
 		/*
 		 * 3. This example was used in conjunction with a survey to measure the
-		 * difference in time it takes to understand imperative versus
-		 * functional code. 
+		 * difference in time it takes to understand imperative versus functional code.
 		 * 
 		 * Read more about it here:
-		 * http://blog.agiledeveloper.com/2015/08/prefer-functional-style-over-imperative.html
+		 * http://blog.agiledeveloper.com/2015/08/prefer-functional-style-over-
+		 * imperative.html
 		 */
 
 	}
